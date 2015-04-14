@@ -1,0 +1,16 @@
+---
+-  include_vars: docker_creds.yml
+
+- name: start golang container
+  sudo: True
+  docker: 
+    name: golang-web
+    image: robinweston/private-images:go-home-latest
+    pull: always
+    state: reloaded
+    username: "{{ docker_hub_username }}"
+    password: "{{ docker_hub_password }}"
+    email: "{{ docker_hub_email }}"
+    ports:
+      - 80:8000
+

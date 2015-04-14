@@ -1,0 +1,9 @@
+---
+- hosts: all
+  sudo: True
+  roles:
+    - angstwad.docker_ubuntu
+
+- hosts: webservers
+  roles:
+    - go-home
